@@ -1,0 +1,35 @@
+.line {
+  border: 1px dashed #cbd2d9;
+  width: 80%;
+}
+.restaurants-list {
+  margin-top: 3%;
+  margin-left: 10%;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow {
+  height: 30px;
+  width: 30px;
+  margin: 5px;
+  border: 1px solid black;
+}
+.page-numbers {
+  color: #334155;
+  font-family: Bree Serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 27px;
+}
+.button {
+  border: none;
+  background-color: transparent;
+}
