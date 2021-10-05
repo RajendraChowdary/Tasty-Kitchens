@@ -52,6 +52,7 @@ class PopularRestaurants extends Component {
     const response = await fetch(url, options)
     if (response.ok) {
       const fetchedData = await response.json()
+      console.log(fetchedData)
       const updatedData = fetchedData.restaurants.map(restaurant => ({
         costForTwo: restaurant.cost_for_two,
         cuisine: restaurant.cuisine,
@@ -92,7 +93,7 @@ class PopularRestaurants extends Component {
 
   onClickRightArrow = () => {
     const {activePage} = this.state
-    if (activePage <= 20) {
+    if (activePage <= 4) {
       this.setState(
         prevState => ({
           activePage: prevState.activePage + 1,
@@ -112,7 +113,7 @@ class PopularRestaurants extends Component {
           updateSelectedSortByValue={this.updateSelectedSortByValue}
         />
         <hr className="line" />
-        <ul data-testid="restaurants-list-loader" className="restaurants-list">
+        <ul className="restaurants-list">
           {restaurantList.map(restaurant => (
             <RestaurantCard restaurantData={restaurant} key={restaurant.id} />
           ))}
@@ -143,14 +144,8 @@ class PopularRestaurants extends Component {
   }
 
   renderLoader = () => (
-    <div className="carousel-loader">
-      <Loader
-        data-testid="restaurants-list-loader"
-        type="TailSpin"
-        color="#F7931E"
-        height={50}
-        width={50}
-      />
+    <div data-testid="restaurants-list-loader" className="carousel-loader">
+      <Loader type="TailSpin" color="#F7931E" height={50} width={50} />
     </div>
   )
 

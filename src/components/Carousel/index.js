@@ -51,7 +51,7 @@ class Carousel extends Component {
     }
     const {carouselList} = this.state
     return (
-      <ul data-testid="restaurants-offers-loader" className="bg-container">
+      <ul className="bg-container">
         <Slider {...settings}>
           {carouselList.map(eachImage => (
             <li key={eachImage.id}>
@@ -64,7 +64,7 @@ class Carousel extends Component {
   }
 
   renderLoader = () => (
-    <div className="carousel-loader">
+    <div data-testid="restaurants-offers-loader" className="carousel-loader">
       <Loader type="ThreeDots" color="#F7931E" height={50} width={50} />
     </div>
   )

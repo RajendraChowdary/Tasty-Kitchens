@@ -20,13 +20,13 @@
   font-size: 18px;
   line-height: 24px;
   color: #334155;
-  margin-bottom: 0px;
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 
 .cost-container {
   display: flex;
   align-items: center;
-  margin-bottom: 0px;
 }
 .food-cost {
   font-family: DM Sans;
@@ -38,7 +38,7 @@
 }
 .rating-container {
   display: flex;
-  margin-bottom: 0px;
+  margin-bottom: 10px;
   align-items: center;
 }
 .star {

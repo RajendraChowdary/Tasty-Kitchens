@@ -25,6 +25,7 @@ class RestaurantDetails extends Component {
     const {match} = this.props
     const {params} = match
     const {id} = params
+    console.log(id)
     const jwtToken = Cookies.get('jwt_token')
     const url = `https://apis.ccbp.in/restaurants-list/${id}`
     const options = {
@@ -34,33 +35,35 @@ class RestaurantDetails extends Component {
       method: 'GET',
     }
     const response = await fetch(url, options)
-    const data = await response.json()
-    const updatedData = {
-      costForTwo: data.cost_for_two,
-      cuisine: data.cuisine,
-      foodItems: data.food_items,
-      id: data.id,
-      imageUrl: data.image_url,
-      itemsCount: data.items_count,
-      location: data.location,
-      name: data.name,
-      opensAt: data.opens_at,
-      rating: data.rating,
-      reviewsCount: data.reviews_count,
+    if (response.ok === true) {
+      const data = await response.json()
+      const updatedData = {
+        costForTwo: data.cost_for_two,
+        cuisine: data.cuisine,
+        foodItems: data.food_items,
+        id: data.id,
+        imageUrl: data.image_url,
+        itemsCount: data.items_count,
+        location: data.location,
+        name: data.name,
+        opensAt: data.opens_at,
+        rating: data.rating,
+        reviewsCount: data.reviews_count,
+      }
+      const updatedFoodItems = data.food_items.map(eachFoodItem => ({
+        cost: eachFoodItem.cost,
+        foodType: eachFoodItem.food_type,
+        id: eachFoodItem.id,
+        imageUrl: eachFoodItem.image_url,
+        name: eachFoodItem.name,
+        rating: eachFoodItem.rating,
+      }))
+      this.setState({
+        restaurantData: updatedData,
+        foodItemList: updatedFoodItems,
+        isLoading: false,
+      })
     }
-    const updatedFoodItems = data.food_items.map(eachFoodItem => ({
-      cost: eachFoodItem.cost,
-      foodType: eachFoodItem.food_type,
-      id: eachFoodItem.id,
-      imageUrl: eachFoodItem.image_url,
-      name: eachFoodItem.name,
-      rating: eachFoodItem.rating,
-    }))
-    this.setState({
-      restaurantData: updatedData,
-      foodItemList: updatedFoodItems,
-      isLoading: false,
-    })
   }
 
   render() {
@@ -78,21 +81,15 @@ class RestaurantDetails extends Component {
       <>
         <Header activeTab="HOME" />
         {isLoading ? (
-          <div className="carousel-loader">
-            <Loader
-              data-testid="restaurants-list-loader"
-              type="TailSpin"
-              color="#F7931E"
-              height={50}
-              width={50}
-            />
+          <div
+            data-testid="restaurants-details-loader"
+            className="carousel-loader"
+          >
+            <Loader type="TailSpin" color="#F7931E" height={50} width={50} />
           </div>
         ) : (
           <>
-            <div
-              data-testid="restaurant-details-loader"
-              className="restaurant-details-container"
-            >
+            <div className="restaurant-details-container">
               <div className="restaurant-details">
                 <img
                   src={imageUrl}
@@ -123,7 +120,7 @@ class RestaurantDetails extends Component {
                 </div>
               </div>
             </div>
-            <ul data-testid="foodItem" className="food-item-list">
+            <ul className="food-item-list">
               {foodItemList.map(eachFoodItem => (
                 <FoodItem
                   foodItemDetails={eachFoodItem}

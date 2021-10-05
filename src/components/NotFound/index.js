@@ -16,8 +16,6 @@ const NotFound = () => (
       <h1 className="not-found-heading">Page Not Found</h1>
       <p className="not-found-description">
         we are sorry, the page you requested could not be found
-        <br />
-        Please go back to the homepage
       </p>
       <Link to="/">
         <button className="home-page-button" type="button">

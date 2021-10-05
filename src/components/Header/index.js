@@ -42,39 +42,6 @@ const Header = props => {
         >
           Logout
         </button>
-        <button
-          type="button"
-          className="logout-mobile-btn"
-          onClick={onClickLogout}
-        >
-          <img
-            src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-log-out-img.png"
-            alt="logout icon"
-            className="logout-icon"
-          />
-        </button>
-      </div>
-      <div className="nav-menu-mobile">
-        <ul className="nav-menu-list-mobile">
-          <Link to="/">
-            <li className="nav-menu-item-mobile">
-              <img
-                src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-home-icon.png"
-                alt="nav home"
-                className="nav-bar-image"
-              />
-            </li>
-          </Link>
-          <Link to="/cart">
-            <li className="nav-menu-item-mobile">
-              <img
-                src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-cart-icon.png"
-                alt="nav cart"
-                className="nav-bar-image"
-              />
-            </li>
-          </Link>
-        </ul>
       </div>
     </nav>
   )

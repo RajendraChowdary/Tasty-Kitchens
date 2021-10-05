@@ -35,7 +35,7 @@ class App extends Component {
       this.setState(prevState => ({
         cartList: prevState.cartList.map(eachCartItem => {
           if (foodObject.id === eachCartItem.id) {
-            const updatedQuantity = eachCartItem.quantity + foodItem.quantity
+            const updatedQuantity = foodItem.quantity
 
             return {...eachCartItem, quantity: updatedQuantity}
           }
@@ -106,7 +106,7 @@ class App extends Component {
             <ProtectedRoute exact path="/" component={Home} />
             <ProtectedRoute
               exact
-              path="/restaurants-list/:id"
+              path="/restaurant/:id"
               component={RestaurantDetails}
             />
             <ProtectedRoute exact path="/cart" component={Cart} />

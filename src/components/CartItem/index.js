@@ -25,7 +25,7 @@ const CartItem = props => (
           <img className="cart-product-image" src={imageUrl} alt={name} />
           <div className="cart-item-details-container">
             <div className="cart-product-title-brand-container">
-              <p className="cart-product-title">{name}</p>
+              <h1 className="cart-product-title">{name}</h1>
             </div>
             <div className="cart-quantity-container">
               <button

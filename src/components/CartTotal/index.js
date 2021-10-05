@@ -10,9 +10,9 @@ const CartTotal = () => (
   <CartContext.Consumer>
     {value => {
       const {cartList} = value
-      let total = 0
+      let totalOrderCost = 0
       cartList.forEach(eachCartItem => {
-        total += eachCartItem.cost * eachCartItem.quantity
+        totalOrderCost += eachCartItem.cost * eachCartItem.quantity
       })
 
       return (
@@ -22,7 +22,7 @@ const CartTotal = () => (
             <h1 className="order-total-value">Order Total:</h1>
             <div className="total-container">
               <p data-testid="total-price" className="total">
-                <FaRupeeSign /> {total}
+                <FaRupeeSign /> {totalOrderCost}
               </p>
               <Link to="/payment">
                 <button type="button" className="order-button">

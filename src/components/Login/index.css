@@ -112,15 +112,41 @@
   padding: 8px 16px 8px 16px;
 }
 
+.password-container {
+  display: flex;
+}
+
 .password-input-field {
   font-size: 14px;
   height: 40px;
   border: 1px solid #d7dfe9;
   background-color: #e2e8f0;
-  color: #64748b;
-  border-radius: 2px;
+  color: #0f172a;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
   margin-top: 5px;
   padding: 8px 16px 8px 16px;
+  border: none;
+  outline: none;
+  width: 90%;
+}
+
+.eye-button {
+  font-size: 14px;
+  height: 40px;
+  border: 1px solid #d7dfe9;
+  background-color: #e2e8f0;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  margin-top: 5px;
+  padding: 8px 16px 8px 16px;
+  border: none;
+  outline: none;
+}
+
+.eye {
+  height: 17px;
+  width: 17px;
 }
 
 .login-button {
